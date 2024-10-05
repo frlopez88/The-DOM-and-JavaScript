@@ -1,12 +1,12 @@
 export class Employee{
 
-        constructor(name, age, salary){
+        constructor(name, age){
             this.name= name 
             this.age= age
-            this.salary= salary
+            this.salary= 0
         }
         getDetails(){
-            return `Your name is ${this.name}, your age is ${this.age} and your salary is ${this.salary}`
+            return `Your name is ${this.name}, your age is ${this.age}`
         }
 }
 
@@ -14,16 +14,15 @@ export class Employee{
 export class fullTimeEmployee extends Employee{
 
 
-        constructor(name, age, salary, yearlySalary){
-            super(name, age, salary)
+        constructor(name, age, yearlySalary){
+            super(name, age)
             this.yearlySalary= yearlySalary
             this.vacationDays= 0
-            this.monthlyPayment= 0
+            
         }
         calculateMonthlyPay(){
-
-             this.monthlyPayment = (this.yearlySalary / 12)
-             return this.monthlyPayment
+             this.salary = (this.yearlySalary / 12)
+             return this.salary
         }
 
 
@@ -35,13 +34,12 @@ export class fullTimeEmployee extends Employee{
 
 export class partTimeEmployee extends Employee{
 
-        constructor(name, age, salary, hourlyWage){
-            super(name, age, salary)
+        constructor(name, age, hourlyWage){
+            super(name, age)
             this.hourlyWage= hourlyWage
-            this.payment= 0
         }
         workHours(hours){
-            this.payment= (this.hourlyWage * hours);
-            return this.payment
+            this.salary= (this.hourlyWage * hours);
+            return this.salary
         }
 }
